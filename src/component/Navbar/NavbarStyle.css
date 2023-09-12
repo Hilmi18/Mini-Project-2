@@ -1,0 +1,12 @@
+.activeContainers {
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .4)) !important;
+    top: 0 !important;
+    padding-top : 15px !important;
+ 
+    z-index: 1000;
+    transition: .5s;
+}
+
+.containers{
+transition: .5s;
+}

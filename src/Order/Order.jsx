@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Order = () => {
   const [menu, setMenu] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [trigger, setTrigger] = useState(false);
   const param = useParams();
 
   const getDetail = () => {
@@ -49,10 +50,7 @@ const Order = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    addToCart(cartItem);
-
-    setCartItemCount(existingCart.length + cartItem.quantity);
+    trigger ? setTrigger(false) : setTrigger(true);
   };
   window.scrollTo(0, 0);
 
@@ -62,7 +60,7 @@ const Order = () => {
 
   return (
     <div>
-      <Navbar background="bg-black bg-opacity-40 pt-3 z-50" />
+      <Navbar background="bg-black bg-opacity-40 pt-3 z-50" trigger={trigger} />
 
       <div className="p-4 md:pt-28 mb-[50px] md:mb-[65px] lg:px-20 xl:px-40 sm:h-[600px] flex flex-col justify-around md:flex-row md:gap-8 md:items-center pt-32">
         <div className="relative w-full h-1/2  md:h-[70%] flex items-center justify-center sm:mt-16 lg:mt-0">

@@ -23,7 +23,6 @@ const Menu = () => {
         `https://api.mudoapi.tech/menus?perPage=6&page=${currentPage}&name=${search}`
       )
       .then((res) => {
-        console.log(res);
         setMenus(res.data.data.Data);
         setCurrentPage(res.data.data.currentPage);
         setNextPage(res.data.data.nextPage);
@@ -34,7 +33,6 @@ const Menu = () => {
   };
 
   const handleOrder = (id) => {
-    console.log(id);
     navigate(`/order/${id}`);
   };
   const handleChangeSearch = (e) => {
@@ -78,7 +76,7 @@ const Menu = () => {
 
   useEffect(() => {
     getMenus();
-  }, [search, currentPage, menus]);
+  }, [search, currentPage]);
 
   return (
     <div id="menuSection" className="min-h-[480px] sm:pt-5 pb-10">

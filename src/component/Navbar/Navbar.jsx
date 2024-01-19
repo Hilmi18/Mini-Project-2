@@ -6,7 +6,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 
-const Navbar = ({ background }) => {
+const Navbar = ({ background, trigger, triggerDelete }) => {
   const [transparent, setTransparent] = useState("containers");
   const [cartItemCount, setCartItemCount] = useState(0);
   const [click, setCLick] = useState(false);
@@ -68,7 +68,7 @@ const Navbar = ({ background }) => {
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItemCount(storedCartItems.length);
-  }, [cartItemCount]);
+  }, [cartItemCount, trigger, triggerDelete]);
 
   return (
     <div
